@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Test.Models;
 using Test.Reposatries.Department_Reposatiry;
 namespace Test.Controllers

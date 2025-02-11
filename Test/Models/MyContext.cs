@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Test.Models
 {
-    public class MyContext:DbContext
+    public class MyContext:IdentityDbContext<ApplicationUser>
     {
         public MyContext()
         {

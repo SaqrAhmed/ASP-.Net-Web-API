@@ -18,7 +18,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MyContext>( Op =>
+builder.Services.AddDbContext<MyContext>(Op =>
 {
     Op.UseSqlServer(builder.Configuration.GetConnectionString("SQL"));
 }
