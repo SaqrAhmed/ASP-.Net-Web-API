@@ -1,8 +1,10 @@
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Test.Models;
-using Test.Reposatries.Department_Reposatiry;
-using Test.Reposatries.Employee_Reposatiry;
+using Test.Reposatries.Account_Reposatory;
+using Test.Reposatries.Department_Reposatory;
+using Test.Reposatries.Employee_Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,8 +26,13 @@ builder.Services.AddDbContext<MyContext>(Op =>
 }
 );
 
-builder.Services.AddScoped<IEmployeeReposatiry, EmployeeReposatiry>();
-builder.Services.AddScoped<IDepartmentReposatiry, DepartmentReposatiry>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<DepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<MyContext>()
+    .AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

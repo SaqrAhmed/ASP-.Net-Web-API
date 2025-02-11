@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using Test.DTOs;
-using Test.Reposatries.Account_Reposatiry;
+using Test.Reposatries.Account_Reposatory;
 
 namespace Test.Controllers
 {
@@ -10,17 +10,25 @@ namespace Test.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IAccountReposatiry accountReposatiry;
+        private readonly IAccountRepository accountRepository;
 
-        public AccountController(IAccountReposatiry accountReposatiry )
+        public AccountController(IAccountRepository accountRepository )
         {
-            this.accountReposatiry = accountReposatiry;
+            this.accountRepository = accountRepository;
         }
+
+
+
         //create account post new user "Registration" => Post
         [HttpPost("Register")]
-        public async Task Regisration( RegistartionDto user)
+        public async Task<IActionResult> Regisration( RegistartionDto user)
         {
-            await accountReposatiry.Registration(user);
+            IdentityResult result =  await accountRepository.Registration(user);
+            if (result.Succeeded)
+            {
+                return Ok(new { message = "User registered successfully" });
+            }
+            return BadRequest(result.Errors);
         }
 
         //check account valid "Login"   => Post

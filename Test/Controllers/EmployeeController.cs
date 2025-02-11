@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Test.Models;
-using Test.Reposatries.Employee_Reposatiry;
+using Test.Reposatries.Employee_Repository;
 
 namespace Test.Controllers
 {
@@ -9,9 +9,9 @@ namespace Test.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly IEmployeeReposatiry employee;
+        private readonly IEmployeeRepository employee;
 
-        public EmployeeController(IEmployeeReposatiry employee )
+        public EmployeeController(IEmployeeRepository employee )
         {
             this.employee = employee;
         }

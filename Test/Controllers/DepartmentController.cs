@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Test.Models;
-using Test.Reposatries.Department_Reposatiry;
+using Test.Reposatries.Department_Reposatory;
+
 namespace Test.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        private readonly IDepartmentReposatiry department;
+        private readonly IDepartmentRepository department;
 
-        public DepartmentController(IDepartmentReposatiry department)
+        public DepartmentController(IDepartmentRepository department)
         {
             this.department = department;
         }

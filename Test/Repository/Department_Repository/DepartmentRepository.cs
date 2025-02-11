@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Test.Models;
 
-namespace Test.Reposatries.Department_Reposatiry
+namespace Test.Reposatries.Department_Reposatory
 {
-    public class DepartmentReposatiry : IDepartmentReposatiry
+    public class DepartmentRepository : IDepartmentRepository
     {
         private readonly MyContext context;
         private Department? department;
 
-        public DepartmentReposatiry(MyContext context)
+        public DepartmentRepository(MyContext context)
         {
             this.context = context;
         }

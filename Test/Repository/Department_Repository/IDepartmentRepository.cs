@@ -1,8 +1,8 @@
 ﻿using Test.Models;
 
-namespace Test.Reposatries.Department_Reposatiry
+namespace Test.Reposatries.Department_Reposatory
 {
-    public interface IDepartmentReposatiry
+    public interface IDepartmentRepository
     {
         Task<bool> DeleteDepartment(int Id);
         Task<List<Department>> GetAllDeparments();

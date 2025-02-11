@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Test.DTOs;
 using Test.Models;
-
-namespace Test.Reposatries.Employee_Reposatiry
+namespace Test.Reposatries.Employee_Repository
 {
-    public class EmployeeReposatiry : IEmployeeReposatiry
+    
+    public class EmployeeRepository : IEmployeeRepository
     {
         //Dependence Injection
         private readonly MyContext context;
@@ -12,7 +12,7 @@ namespace Test.Reposatries.Employee_Reposatiry
         private Employee employee = new Employee();
 
         //Constructor
-        public EmployeeReposatiry(MyContext context)
+        public EmployeeRepository(MyContext context)
         {
             this.context = context;
         }

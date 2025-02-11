@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Test.DTOs;
+﻿using Test.DTOs;
 using Test.Models;
 
-namespace Test.Reposatries.Employee_Reposatiry
+namespace Test.Reposatries.Employee_Repository
 {
-    public interface IEmployeeReposatiry
+    public interface IEmployeeRepository
     {
         Task<bool> DeleteEmployee(int Id);
         Task<List<EmployeeDto>> GetAllEmployees();
